@@ -4,14 +4,14 @@ import java.util.List;
 
 public class InstitutoStorage {
     private static List<InstitutoDePesquisa> institutos = new ArrayList<>();
-    private static int incremento = 0;
+    private static int incremento = 1;
 
     public static boolean inserir(InstitutoDePesquisa instituto) {
         instituto.setIdInstituto(incremento++);
         institutos.add(instituto);
 
 
-        String query = "INSERT INTO instituto_de_pesquisa (Nome, Empresa_contratante, idInstituto ) VALUES (?, ?, ?)";
+        String query = "INSERT INTO instituto_de_pesquisa (nome, empresa_contratante, idInstituto ) VALUES (?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -28,7 +28,7 @@ public class InstitutoStorage {
 
             resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
-                instituto.setId(resultSet.getInt(incremento));
+                instituto.setIdInstituto(resultSet.getInt(incremento));
             }
         } catch (SQLException e ) {
             e.printStackTrace();
@@ -53,7 +53,7 @@ public class InstitutoStorage {
 
     public static boolean atualizar(InstitutoDePesquisa instituto) {
 
-        String query = "UPDATE instituto_de_pesquisa SET Nome = ?, Empresa_contratante = ? WHERE idInstituto = ?";
+        String query = "UPDATE instituto_de_pesquisa SET nome = ?, empresa_contratante = ? WHERE idInstituto = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;

@@ -4,14 +4,14 @@ import java.util.List;
 
 public class CandidatoStorage {
     private static List<Candidato> candidatos = new ArrayList<>();
-    private static int incremento = 0;
+    private static int incremento = 1;
 
 
     public static boolean inserir(Candidato candidato) {
         candidato.setId(incremento++);
         candidatos.add(candidato);
 
-        String query = "INSERT INTO candidato (Nome_do_candidato, Partido, idCandidato ) VALUES (?, ?, ?)";
+        String query = "INSERT INTO candidato (nome, partido, idCandidato ) VALUES (?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -53,7 +53,7 @@ public class CandidatoStorage {
 
     public static boolean atualizar(Candidato candidato) {
 
-        String query = "UPDATE candidato SET Nome_do_candidato = ?, Partido = ? WHERE idCandidato = ?";
+        String query = "UPDATE candidato SET nome = ?, partido = ? WHERE idCandidato = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -132,7 +132,7 @@ public class CandidatoStorage {
             while (resultSet.next()) {
                 Candidato candidato = new Candidato();
                 candidato.setId(resultSet.getInt("idCandidato"));
-                candidato.setNome(resultSet.getString("Nome_do_candidato"));
+                candidato.setNome(resultSet.getString("nome"));
                 candidato.setPartido(resultSet.getString("Partido"));
 
                 candidatos.add(candidato);

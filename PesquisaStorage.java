@@ -10,7 +10,7 @@ public class PesquisaStorage {
         pesquisa.setIdPesquisa(incremento++);
         pesquisas.add(pesquisa);
 
-        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa, idInstituto ) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa, idPesquisa ) VALUES (?, ?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
