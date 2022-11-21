@@ -11,6 +11,7 @@ public class InstitutoStorage {
         institutos.add(instituto);
 
 
+
         String query = "INSERT INTO instituto_de_pesquisa (nome, empresa_contratante, idInstituto ) VALUES (?, ?, ?)";
 
         Connection conexao = null;
@@ -131,9 +132,9 @@ public class InstitutoStorage {
 
             while (resultSet.next()) {
                 InstitutoDePesquisa instituto = new InstitutoDePesquisa();
-                instituto.setId(resultSet.getInt("idInstituto"));
-                instituto.setNome(resultSet.getString("Nome"));
-                instituto.setPartido(resultSet.getString("Empresa_Contratante"));
+                instituto.setNome(resultSet.getString("nome"));
+                instituto.setEmpresaContratante(resultSet.getString("empresa_contratante"));
+                instituto.setIdInstituto(resultSet.getInt("idInstituto"));
 
                 institutos.add(instituto);
             }
