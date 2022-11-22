@@ -8,6 +8,17 @@ public class Pesquisa extends Candidato {
     private String turno;
     private String TipoDePesquisa;
 
+    private int idInstitutoProv;
+
+
+    public int getIdInstitutoProv() {
+        return idInstitutoProv;
+    }
+
+    public void setIdInstitutoProv(int idInstitutoProv) {
+        this.idInstitutoProv = idInstitutoProv;
+    }
+
     public int getIdPesquisa() {
         return idPesquisa;
     }

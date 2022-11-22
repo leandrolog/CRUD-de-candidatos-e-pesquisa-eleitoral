@@ -9,7 +9,7 @@ public class PesquisaStorage {
 
     public static boolean inserir(Pesquisa pesquisa) {
 
-        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa ) VALUES (?, ?, ?)";
+        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa, idInstituto ) VALUES (?, ?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -22,6 +22,7 @@ public class PesquisaStorage {
             statement.setString(1, pesquisa.getTurno());
             statement.setString(2, pesquisa.getData());
             statement.setString(3, pesquisa.getTipoDepesquisa());
+            statement.setInt(4, pesquisa.getIdInstitutoProv());
             statement.execute();
 
             resultSet = statement.getGeneratedKeys();

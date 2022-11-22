@@ -20,6 +20,7 @@ public class PesquisaFormPanel extends JPanel {
     private JTextField txtData;
     private JTextField txtTurno;
     private JTextField txtTipoDePesquisa;
+    private JTextField txtidInstituto;
     private JButton btnSalvar;
     private JButton btnCancelar;
 
@@ -40,12 +41,14 @@ public class PesquisaFormPanel extends JPanel {
                     txtData.setText("");
                     txtTurno.setText("");
                     txtTipoDePesquisa.setText("");
+                    txtidInstituto.setText("");
                 } else {
                     txtIdPesquisa.setText(Integer.toString(pesquisa.getId()));
                     txtIntencaoDeVoto.setText(pesquisa.getNome());
                     txtData.setText(pesquisa.getPartido());
                     txtTurno.setText("");
                     txtTipoDePesquisa.setText("");
+                    txtidInstituto.setText("");
                 }
             }
         });
@@ -65,27 +68,36 @@ public class PesquisaFormPanel extends JPanel {
         txtIdPesquisa.setEditable(false);
         adicionarComponente(txtIdPesquisa, 0, 2);
 
-        label = new JLabel("Inteção de Voto");
+
+        label = new JLabel("Id Instituto");
         adicionarComponente(label, 1, 0);
+        txtidInstituto = new JTextField(5);
+      ///  txtidInstituto.setEditable(false);
+        adicionarComponente(txtidInstituto, 1, 2);
+
+
+
+        label = new JLabel("Inteção de Voto");
+        adicionarComponente(label, 2, 0);
         txtIntencaoDeVoto = new JTextField(30);
-        adicionarComponente(txtIntencaoDeVoto, 1, 2);
+        adicionarComponente(txtIntencaoDeVoto, 2, 2);
 
         label = new JLabel("Data");
-        adicionarComponente(label, 2, 0);
+        adicionarComponente(label, 3, 0);
         txtData = new JTextField( 30);
         JScrollPane pane = new JScrollPane(txtData);
-        adicionarComponente(pane, 2, 2, 1, 1);
+        adicionarComponente(pane, 3, 2, 1, 1);
 
         label = new JLabel("Turno");
-        adicionarComponente(label, 3, 0);
+        adicionarComponente(label, 4, 0);
         txtTurno = new JTextField( 30);
 
-        adicionarComponente(txtTurno, 3, 2, 1, 1);
+        adicionarComponente(txtTurno, 4, 2, 1, 1);
 
         label = new JLabel("Tipo de Pesquisa");
-        adicionarComponente(label, 4, 0);
+        adicionarComponente(label, 5, 0);
         txtTipoDePesquisa = new JTextField( 30);
-        adicionarComponente(txtTipoDePesquisa, 4, 2, 1, 1);
+        adicionarComponente(txtTipoDePesquisa, 5, 2, 1, 1);
 
         criarBotoes();
     }
@@ -112,6 +124,7 @@ public class PesquisaFormPanel extends JPanel {
                     novaPesquisa.setData(txtData.getText());
                     novaPesquisa.setTurno(txtTurno.getText());
                     novaPesquisa.setTipoDepesquisa(txtTipoDePesquisa.getText());
+                    novaPesquisa.setIdInstitutoProv(Integer.parseInt(txtidInstituto.getText()));
 
                     PesquisaStorage.inserir(novaPesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this,
