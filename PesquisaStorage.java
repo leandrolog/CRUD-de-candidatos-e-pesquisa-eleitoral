@@ -6,11 +6,10 @@ public class PesquisaStorage {
     private static List<Pesquisa> pesquisas = new ArrayList<>();
     private static int incremento = 1;
 
-    public static boolean inserir(Pesquisa pesquisa) {
-        pesquisa.setIdPesquisa(incremento++);
-        pesquisas.add(pesquisa);
 
-        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa, idPesquisa ) VALUES (?, ?, ?, ?)";
+    public static boolean inserir(Pesquisa pesquisa) {
+
+        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa ) VALUES (?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -23,13 +22,9 @@ public class PesquisaStorage {
             statement.setString(1, pesquisa.getTurno());
             statement.setString(2, pesquisa.getData());
             statement.setString(3, pesquisa.getTipoDepesquisa());
-            statement.setInt(4, pesquisa.getIdPesquisa());
             statement.execute();
 
             resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                pesquisa.setIdPesquisa(resultSet.getInt(incremento));
-            }
         } catch (SQLException e ) {
             e.printStackTrace();
             return false;

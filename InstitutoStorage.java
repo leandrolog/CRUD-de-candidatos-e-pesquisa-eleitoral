@@ -4,15 +4,12 @@ import java.util.List;
 
 public class InstitutoStorage {
     private static List<InstitutoDePesquisa> institutos = new ArrayList<>();
-    private static int incremento = 1;
 
     public static boolean inserir(InstitutoDePesquisa instituto) {
-        instituto.setIdInstituto(incremento++);
-        institutos.add(instituto);
 
 
 
-        String query = "INSERT INTO instituto_de_pesquisa (nome, empresa_contratante, idInstituto ) VALUES (?, ?, ?)";
+        String query = "INSERT INTO instituto_de_pesquisa (nome, empresa_contratante ) VALUES (?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -24,13 +21,10 @@ public class InstitutoStorage {
             statement = conexao.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, instituto.getNome());
             statement.setString(2, instituto.getEmpresaContratante());
-            statement.setInt(3, instituto.getIdInstituto());
             statement.execute();
 
             resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                instituto.setIdInstituto(resultSet.getInt(incremento));
-            }
+
         } catch (SQLException e ) {
             e.printStackTrace();
             return false;
@@ -158,4 +152,4 @@ public class InstitutoStorage {
     }
 
 
-} // fim da classe TarefaStorage
+}

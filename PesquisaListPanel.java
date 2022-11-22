@@ -33,12 +33,13 @@ public class PesquisaListPanel extends JPanel {
 
         criarComandosPanel();
         criarTabelaPanel();
+        criarComandosMenuPanel();
     }
 
     private void criarComandosPanel() {
         JPanel panel = new JPanel();
         FlowLayout layout = (FlowLayout) panel.getLayout();
-        layout.setAlignment(FlowLayout.RIGHT);
+        layout.setAlignment(FlowLayout.CENTER);
 
         criarBtnCandidato();
         panel.add(btnCandidato);
@@ -49,19 +50,30 @@ public class PesquisaListPanel extends JPanel {
         criarBtnInstituto();
         panel.add(btnInstituto);
 
+        add(panel, BorderLayout.NORTH);
+
+    }
+
+
+    private void criarComandosMenuPanel() {
+        JPanel panelMenu = new JPanel();
+        FlowLayout layout = (FlowLayout) panelMenu.getLayout();
+        layout.setAlignment(FlowLayout.CENTER);
+
         criarBtnCriar();
-        panel.add(btnCriar);
+        panelMenu.add(btnCriar);
 
         criarBtnEditar();
-        panel.add(btnEditar);
+        panelMenu.add(btnEditar);
 
         criarBtnRemover();
-        panel.add(btnRemover);
+        panelMenu.add(btnRemover);
 
-        add(panel, BorderLayout.NORTH);
+        add(panelMenu, BorderLayout.SOUTH);
 
         desabilitarBtns();
     }
+
 
     private void criarBtnCandidato() {
         btnCandidato = new JButton("Candidato");

@@ -121,7 +121,7 @@ public class InstitutoFormPanel extends JPanel {
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListPanelPesquisa();
+                frame.mostrarListPanelInstituto();
             }
         });
         btnPanel.add(btnCancelar);
