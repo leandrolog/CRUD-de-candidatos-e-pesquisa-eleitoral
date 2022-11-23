@@ -33,7 +33,7 @@ public class AppFrame extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-        setSize(700, 530);
+        setSize(700, 550);
 
     }
 
