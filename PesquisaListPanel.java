@@ -17,7 +17,7 @@ public class PesquisaListPanel extends JPanel {
 
     private JButton btnCandidato;
     private JButton btnPesquisa;
-    private JButton btnInstituto;
+    private JButton btnDesempenho;
     private JButton btnCriar;
     private JButton btnEditar;
     private JButton btnRemover;
@@ -47,8 +47,8 @@ public class PesquisaListPanel extends JPanel {
         criarBtnPesquisa();
         panel.add(btnPesquisa);
 
-        criarBtnInstituto();
-        panel.add(btnInstituto);
+        criarBtnDesempenho();
+        panel.add(btnDesempenho);
 
         add(panel, BorderLayout.NORTH);
 
@@ -94,12 +94,12 @@ public class PesquisaListPanel extends JPanel {
             }
         });
     }
-    private void criarBtnInstituto() {//// leva a tabela de consulta pesquisa
-        btnInstituto = new JButton("Instituto de Pesquisa");
-        btnInstituto.addActionListener(new ActionListener() {
+    private void criarBtnDesempenho() {
+        btnDesempenho = new JButton("Desempenho");
+        btnDesempenho.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListPanelInstituto();
+                frame.mostrarListPanelDesempenho();
             }
         });
     }

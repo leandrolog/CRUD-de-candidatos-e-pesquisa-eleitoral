@@ -17,7 +17,7 @@ public class CandidatoListPanel extends JPanel {
 
     private JButton btnCandidato;
     private JButton btnPesquisa;
-    private JButton btnInstituto;
+    private JButton btnDesempenho;
 
     private JButton btnCriar;
     private JButton btnEditar;
@@ -33,12 +33,13 @@ public class CandidatoListPanel extends JPanel {
 
         criarComandosPanel();
         criarTabelaPanel();
+        criarComandosMenuPanel();
     }
 
     private void criarComandosPanel() {
         JPanel panel = new JPanel();
         FlowLayout layout = (FlowLayout) panel.getLayout();
-        layout.setAlignment(FlowLayout.RIGHT);
+        layout.setAlignment(FlowLayout.CENTER);
 
         criarBtnCandidato();
         panel.add(btnCandidato);
@@ -46,19 +47,29 @@ public class CandidatoListPanel extends JPanel {
         criarBtnPesquisa();
         panel.add(btnPesquisa);
 
-        criarBtnInstituto();
-        panel.add(btnInstituto);
-
-        criarBtnCriar();
-        panel.add(btnCriar);
-
-        criarBtnEditar();
-        panel.add(btnEditar);
-
-        criarBtnRemover();
-        panel.add(btnRemover);
+        criarBtnDesempenho();
+        panel.add(btnDesempenho);
 
         add(panel, BorderLayout.NORTH);
+
+    }
+
+
+    private void criarComandosMenuPanel() {
+        JPanel panelMenu = new JPanel();
+        FlowLayout layout = (FlowLayout) panelMenu.getLayout();
+        layout.setAlignment(FlowLayout.CENTER);
+
+        criarBtnCriar();
+        panelMenu.add(btnCriar);
+
+        criarBtnEditar();
+        panelMenu.add(btnEditar);
+
+        criarBtnRemover();
+        panelMenu.add(btnRemover);
+
+        add(panelMenu, BorderLayout.SOUTH);
 
         desabilitarBtns();
     }
@@ -82,12 +93,12 @@ public class CandidatoListPanel extends JPanel {
         });
     }
 
-    private void criarBtnInstituto() {//// leva a tabela de consulta pesquisa
-        btnInstituto = new JButton("Instituto de Pesquisa");
-        btnInstituto.addActionListener(new ActionListener() {
+    private void criarBtnDesempenho() {
+        btnDesempenho = new JButton("Desempenho");
+        btnDesempenho.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListPanelInstituto();
+                frame.mostrarListPanelDesempenho();
             }
         });
     }

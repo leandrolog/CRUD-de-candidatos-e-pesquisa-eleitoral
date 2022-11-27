@@ -4,12 +4,9 @@ import java.util.List;
 
 public class CandidatoStorage {
     private static List<Candidato> candidatos = new ArrayList<>();
-    private static int incremento = 1;
 
 
     public static boolean inserir(Candidato candidato) {
-        candidato.setId(incremento++);
-        candidatos.add(candidato);
 
         String query = "INSERT INTO candidato (nome, partido, idCandidato ) VALUES (?, ?, ?)";
 
@@ -27,9 +24,6 @@ public class CandidatoStorage {
             statement.execute();
 
             resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                candidato.setId(resultSet.getInt(incremento));
-            }
         } catch (SQLException e ) {
             e.printStackTrace();
             return false;

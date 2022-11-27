@@ -13,8 +13,8 @@ public class AppFrame extends JFrame {
     private PesquisaListPanel listPanelPesquisa;
     private PesquisaFormPanel formPanelPesquisa;
 
-    private InstitutoListPanel listPanelInstituto;
-    private InstitutoFormPanel formPanelInstituto;
+    private DesempenhoListPanel listPanelDesempenho;
+    private DesempenhoFormPanel formPanelDesempenho;
 
 
     public AppFrame() {
@@ -33,7 +33,7 @@ public class AppFrame extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-        setSize(700, 530);
+        setSize(700, 550);
 
     }
 
@@ -52,11 +52,11 @@ public class AppFrame extends JFrame {
         cardPanel.add(formPanelPesquisa, PesquisaFormPanel.class.getName());
 
 
-        formPanelInstituto = new InstitutoFormPanel(this);
-        cardPanel.add(formPanelInstituto, InstitutoFormPanel.class.getName());
+        formPanelDesempenho = new DesempenhoFormPanel(this);
+        cardPanel.add(formPanelDesempenho, DesempenhoFormPanel.class.getName());
 
-        listPanelInstituto = new InstitutoListPanel(this);
-        cardPanel.add(listPanelInstituto, InstitutoListPanel.class.getName());
+        listPanelDesempenho = new DesempenhoListPanel(this);
+        cardPanel.add(listPanelDesempenho, DesempenhoListPanel.class.getName());
     }
 
 
@@ -82,13 +82,13 @@ public class AppFrame extends JFrame {
         cardLayout.show(cardPanel, PesquisaListPanel.class.getName());
     }
 
-    public void mostrarFormPanelInstituto(InstitutoDePesquisa instituto) {
-        formPanelInstituto.setInstitutoDePesquisa(instituto);
-        cardLayout.show(cardPanel, InstitutoFormPanel.class.getName());
+    public void mostrarFormPanelDesempenho(Desempenho desempenho) {
+        formPanelDesempenho.setInstitutoDePesquisa(desempenho);
+        cardLayout.show(cardPanel, DesempenhoFormPanel.class.getName());
     }
 
-    public void mostrarListPanelInstituto() {
-        listPanelInstituto.recarregar();
-        cardLayout.show(cardPanel, InstitutoListPanel.class.getName());
+    public void mostrarListPanelDesempenho() {
+        listPanelDesempenho.recarregar();
+        cardLayout.show(cardPanel, DesempenhoListPanel.class.getName());
     }
 }

@@ -8,15 +8,15 @@ public class Pesquisa extends Candidato {
     private String turno;
     private String TipoDePesquisa;
 
-    private int idInstitutoProv;
+    private String Instituto;
 
 
-    public int getIdInstitutoProv() {
-        return idInstitutoProv;
+    public String getInstituto() {
+        return Instituto;
     }
 
-    public void setIdInstitutoProv(int idInstitutoProv) {
-        this.idInstitutoProv = idInstitutoProv;
+    public void setInstituto(String instituto) {
+        Instituto = instituto;
     }
 
     public int getIdPesquisa() {

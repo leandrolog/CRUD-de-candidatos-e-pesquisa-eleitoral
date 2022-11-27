@@ -20,7 +20,7 @@ public class PesquisaFormPanel extends JPanel {
     private JTextField txtData;
     private JTextField txtTurno;
     private JTextField txtTipoDePesquisa;
-    private JTextField txtidInstituto;
+    private JTextField txtInstituto;
     private JButton btnSalvar;
     private JButton btnCancelar;
 
@@ -41,14 +41,14 @@ public class PesquisaFormPanel extends JPanel {
                     txtData.setText("");
                     txtTurno.setText("");
                     txtTipoDePesquisa.setText("");
-                    txtidInstituto.setText("");
+                    txtInstituto.setText("");
                 } else {
                     txtIdPesquisa.setText(Integer.toString(pesquisa.getId()));
                     txtIntencaoDeVoto.setText(pesquisa.getNome());
                     txtData.setText(pesquisa.getPartido());
                     txtTurno.setText("");
                     txtTipoDePesquisa.setText("");
-                    txtidInstituto.setText("");
+                    txtInstituto.setText("");
                 }
             }
         });
@@ -69,11 +69,10 @@ public class PesquisaFormPanel extends JPanel {
         adicionarComponente(txtIdPesquisa, 0, 2);
 
 
-        label = new JLabel("Id Instituto");
+        label = new JLabel("Instituto");
         adicionarComponente(label, 1, 0);
-        txtidInstituto = new JTextField(5);
-      ///  txtidInstituto.setEditable(false);
-        adicionarComponente(txtidInstituto, 1, 2);
+        txtInstituto = new JTextField(5);
+        adicionarComponente(txtInstituto, 1, 2);
 
 
 
@@ -124,7 +123,7 @@ public class PesquisaFormPanel extends JPanel {
                     novaPesquisa.setData(txtData.getText());
                     novaPesquisa.setTurno(txtTurno.getText());
                     novaPesquisa.setTipoDepesquisa(txtTipoDePesquisa.getText());
-                    novaPesquisa.setIdInstitutoProv(Integer.parseInt(txtidInstituto.getText()));
+                    novaPesquisa.setInstituto((txtInstituto.getText()));
 
                     PesquisaStorage.inserir(novaPesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this,
@@ -136,6 +135,8 @@ public class PesquisaFormPanel extends JPanel {
                     pesquisa.setData(txtData.getText());
                     pesquisa.setTurno(txtTurno.getText());
                     pesquisa.setTipoDepesquisa(txtTipoDePesquisa.getText());
+                    pesquisa.setInstituto((txtInstituto.getText()));
+
                     PesquisaStorage.atualizar(PesquisaFormPanel.this.pesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this,
                             "Pesquisa atualizada com sucesso",

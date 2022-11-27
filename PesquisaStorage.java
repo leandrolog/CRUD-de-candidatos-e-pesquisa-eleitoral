@@ -4,12 +4,11 @@ import java.util.List;
 
 public class PesquisaStorage {
     private static List<Pesquisa> pesquisas = new ArrayList<>();
-    private static int incremento = 1;
 
 
     public static boolean inserir(Pesquisa pesquisa) {
 
-        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa, idInstituto ) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa, Instituto ) VALUES (?, ?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -22,7 +21,7 @@ public class PesquisaStorage {
             statement.setString(1, pesquisa.getTurno());
             statement.setString(2, pesquisa.getData());
             statement.setString(3, pesquisa.getTipoDepesquisa());
-            statement.setInt(4, pesquisa.getIdInstitutoProv());
+            statement.setString(4, pesquisa.getInstituto());
             statement.execute();
 
             resultSet = statement.getGeneratedKeys();
@@ -49,7 +48,7 @@ public class PesquisaStorage {
 
     public static boolean atualizar(Pesquisa pesquisa) {
 
-        String query = "UPDATE pesquisa_eleitoral SET Turno = ?, Data = ?, Tipo_de_pesquisa = ? WHERE idPesquisa = ?";
+        String query = "UPDATE pesquisa_eleitoral SET Turno = ?, Data = ?, Tipo_de_pesquisa = ?, instituto WHERE idPesquisa = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -63,6 +62,7 @@ public class PesquisaStorage {
             statement.setString(2, pesquisa.getTurno());
             statement.setString(3, pesquisa.getData());
             statement.setString(4, pesquisa.getTipoDepesquisa());
+            statement.setString(5, pesquisa.getInstituto());
 
             statement.execute();
         } catch (SQLException e ) {
@@ -134,6 +134,7 @@ public class PesquisaStorage {
                 pesquisa.setTurno(resultSet.getString("Turno"));
                 pesquisa.setData(resultSet.getString("Data"));
                 pesquisa.setTipoDepesquisa(resultSet.getString("Tipo_de_pesquisa"));
+                pesquisa.setInstituto(resultSet.getString("instituto"));
 
                 pesquisas.add(pesquisa);
             }

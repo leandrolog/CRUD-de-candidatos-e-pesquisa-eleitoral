@@ -101,16 +101,16 @@ public class CandidatoFormPanel extends JPanel {
 
                     CandidatoStorage.inserir(novoCandidato);
                     JOptionPane.showMessageDialog(CandidatoFormPanel.this,
-                            "Tarefa incluída com sucesso",
-                            "Todo App",
+                            "Candidato Inserido com sucesso",
+                            "App",
                             JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     candidato.setNome(txtNome.getText());
                     candidato.setPartido(txtPartido.getText());
                     CandidatoStorage.atualizar(CandidatoFormPanel.this.candidato);
                     JOptionPane.showMessageDialog(CandidatoFormPanel.this,
-                            "Tarefa atualizada com sucesso",
-                            "Todo App",
+                            "Candidato atualizado com sucesso",
+                            "App",
                             JOptionPane.INFORMATION_MESSAGE);
                 }
 
