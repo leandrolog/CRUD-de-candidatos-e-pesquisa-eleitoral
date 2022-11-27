@@ -113,7 +113,7 @@ public class DesempenhoStorage {
 
     public static List<Desempenho> listar() {
 
-        List<Desempenho> institutos = new ArrayList<>();
+        List<Desempenho> desempenhos = new ArrayList<>();
 
         String query = "SELECT * FROM desempenho ORDER BY idDesempenho";
 
@@ -152,7 +152,7 @@ public class DesempenhoStorage {
             }
         }
 
-        return institutos;
+        return desempenhos;
     }
 
 

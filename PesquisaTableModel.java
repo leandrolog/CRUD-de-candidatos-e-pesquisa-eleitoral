@@ -6,10 +6,11 @@ import javax.swing.table.AbstractTableModel;
 public class PesquisaTableModel extends AbstractTableModel {
     private List<Pesquisa> pesquisas = new ArrayList<>();
     private String[] colunas = new String[]{"Id Pesquisa",
-            "Intenção de Voto",
-            "Data",
+            "Instituto",
             "Turno",
-            "Tipo de Pesquisa"};
+            "Tipo de Pesquisa",
+            "Data",
+    };
 
     public PesquisaTableModel(List<Pesquisa> pesquisas) {
         this.pesquisas = pesquisas;
@@ -45,7 +46,7 @@ public class PesquisaTableModel extends AbstractTableModel {
                 value = Integer.toString(pesquisa.getIdPesquisa());
                 break;
             case 1:
-                value = pesquisa.getIntencaoDeVoto();
+                value = pesquisa.getInstituto();
                 break;
             case 2:
                 value = pesquisa.getData();

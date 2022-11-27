@@ -132,9 +132,10 @@ public class PesquisaStorage {
                 Pesquisa pesquisa = new Pesquisa();
                 pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
                 pesquisa.setTurno(resultSet.getString("Turno"));
-                pesquisa.setData(resultSet.getString("Data"));
                 pesquisa.setTipoDepesquisa(resultSet.getString("Tipo_de_pesquisa"));
                 pesquisa.setInstituto(resultSet.getString("instituto"));
+                pesquisa.setData(resultSet.getString("Data"));
+
 
                 pesquisas.add(pesquisa);
             }
