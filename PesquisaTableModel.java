@@ -7,9 +7,10 @@ public class PesquisaTableModel extends AbstractTableModel {
     private List<Pesquisa> pesquisas = new ArrayList<>();
     private String[] colunas = new String[]{"Id Pesquisa",
             "Instituto",
+            "Data",
             "Turno",
             "Tipo de Pesquisa",
-            "Data",
+
     };
 
     public PesquisaTableModel(List<Pesquisa> pesquisas) {

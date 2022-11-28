@@ -16,7 +16,6 @@ public class PesquisaFormPanel extends JPanel {
     private GridBagConstraints constraintsPesquisa;
 
     private JTextField txtIdPesquisa;
-    private JTextField txtIntencaoDeVoto;
     private JTextField txtData;
     private JTextField txtTurno;
     private JTextField txtTipoDePesquisa;
@@ -37,14 +36,12 @@ public class PesquisaFormPanel extends JPanel {
             public void componentShown(ComponentEvent e) {
                 if (pesquisa == null) {
                     txtIdPesquisa.setText("");
-                    txtIntencaoDeVoto.setText("");
                     txtData.setText("");
                     txtTurno.setText("");
                     txtTipoDePesquisa.setText("");
                     txtInstituto.setText("");
                 } else {
                     txtIdPesquisa.setText(Integer.toString(pesquisa.getId()));
-                    txtIntencaoDeVoto.setText(pesquisa.getNome());
                     txtData.setText(pesquisa.getPartido());
                     txtTurno.setText("");
                     txtTipoDePesquisa.setText("");
@@ -76,10 +73,6 @@ public class PesquisaFormPanel extends JPanel {
 
 
 
-        label = new JLabel("Inteção de Voto");
-        adicionarComponente(label, 2, 0);
-        txtIntencaoDeVoto = new JTextField(30);
-        adicionarComponente(txtIntencaoDeVoto, 2, 2);
 
         label = new JLabel("Data");
         adicionarComponente(label, 3, 0);
@@ -119,7 +112,6 @@ public class PesquisaFormPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (PesquisaFormPanel.this.pesquisa == null) {
                     Pesquisa novaPesquisa = new Pesquisa();
-                    novaPesquisa.setIntencaoDeVoto(txtIntencaoDeVoto.getText());
                     novaPesquisa.setData(txtData.getText());
                     novaPesquisa.setTurno(txtTurno.getText());
                     novaPesquisa.setTipoDepesquisa(txtTipoDePesquisa.getText());
@@ -131,7 +123,6 @@ public class PesquisaFormPanel extends JPanel {
                             "App",
                             JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    pesquisa.setIntencaoDeVoto(txtIntencaoDeVoto.getText());
                     pesquisa.setData(txtData.getText());
                     pesquisa.setTurno(txtTurno.getText());
                     pesquisa.setTipoDepesquisa(txtTipoDePesquisa.getText());
