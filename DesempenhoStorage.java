@@ -50,7 +50,7 @@ public class DesempenhoStorage {
 
     public static boolean atualizar(Desempenho desempenho) {
 
-        String query = "UPDATE instituto_de_pesquisa SET nome = ?, data = ?, intenção_de_voto = ?, idCandidato = ?WHERE idDesempenho = ?";
+        String query = "UPDATE desempenho SET idCandidato = ?, nome = ?, data = ?, intenção_de_voto = ?WHERE idDesempenho = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -59,10 +59,12 @@ public class DesempenhoStorage {
             conexao = ConexaoFactory.getConexao();
 
             statement = conexao.prepareStatement(query);
-            statement.setString(1, desempenho.getNome());
-            statement.setString(2, desempenho.getData());
-            statement.setString(3, desempenho.getIntencaoDeVoto());
-            statement.setInt(4, desempenho.getIdCandidato());
+            statement.setInt(1, desempenho.getIdCandidato());
+            statement.setString(2, desempenho.getNome());
+            statement.setString(3, desempenho.getData());
+            statement.setString(4, desempenho.getIntencaoDeVoto());
+            statement.setInt(5, desempenho.getIdDesempenho());
+
             statement.execute();
         } catch (SQLException e ) {
             e.printStackTrace();
