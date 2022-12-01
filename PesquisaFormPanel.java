@@ -35,17 +35,19 @@ public class PesquisaFormPanel extends JPanel {
             @Override
             public void componentShown(ComponentEvent e) {
                 if (pesquisa == null) {
-                    txtIdPesquisa.setText("");
                     txtData.setText("");
                     txtTurno.setText("");
                     txtTipoDePesquisa.setText("");
                     txtInstituto.setText("");
+                    txtIdPesquisa.setText("");
+
                 } else {
+                    txtData.setText(pesquisa.getData());
+                    txtTurno.setText(pesquisa.getTurno());
+                    txtTipoDePesquisa.setText(pesquisa.getTipoDepesquisa());
+                    txtInstituto.setText(pesquisa.getInstituto());
                     txtIdPesquisa.setText(Integer.toString(pesquisa.getId()));
-                    txtData.setText(pesquisa.getPartido());
-                    txtTurno.setText("");
-                    txtTipoDePesquisa.setText("");
-                    txtInstituto.setText("");
+
                 }
             }
         });

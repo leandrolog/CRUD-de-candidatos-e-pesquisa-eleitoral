@@ -180,4 +180,4 @@ public class PesquisaListPanel extends JPanel {
     public void recarregar() {
         tableModel.carregar(PesquisaStorage.listar());
     }
-} // fim da classe TarefaListPanel
+}

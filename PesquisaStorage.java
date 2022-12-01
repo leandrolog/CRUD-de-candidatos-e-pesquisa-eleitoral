@@ -48,7 +48,7 @@ public class PesquisaStorage {
 
     public static boolean atualizar(Pesquisa pesquisa) {
 
-        String query = "UPDATE pesquisa_eleitoral SET Turno = ?, Data = ?, Tipo_de_pesquisa = ?, instituto WHERE idPesquisa = ?";
+        String query = "UPDATE pesquisa_eleitoral SET turno = ?, data = ?,  tipo_de_pesquisa = ?, instituto = ?  WHERE idPesquisa = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -58,11 +58,11 @@ public class PesquisaStorage {
 
             statement = conexao.prepareStatement(query);
 
-            statement.setInt(1, pesquisa.getIdPesquisa());
-            statement.setString(2, pesquisa.getTurno());
-            statement.setString(3, pesquisa.getData());
-            statement.setString(4, pesquisa.getTipoDepesquisa());
-            statement.setString(5, pesquisa.getInstituto());
+            statement.setString(1, pesquisa.getTurno());
+            statement.setString(2, pesquisa.getData());
+            statement.setString(3, pesquisa.getTipoDepesquisa());
+            statement.setString(4, pesquisa.getInstituto());
+            statement.setInt(5, pesquisa.getIdPesquisa());
 
             statement.execute();
         } catch (SQLException e ) {
@@ -130,12 +130,11 @@ public class PesquisaStorage {
 
             while (resultSet.next()) {
                 Pesquisa pesquisa = new Pesquisa();
-                pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
+                pesquisa.setTurno(resultSet.getString("Turno"));
                 pesquisa.setData(resultSet.getString("Data"));
                 pesquisa.setTipoDepesquisa(resultSet.getString("Tipo_de_pesquisa"));
                 pesquisa.setInstituto(resultSet.getString("instituto"));
-                pesquisa.setTurno(resultSet.getString("Turno"));
-
+                pesquisa.setTurno(resultSet.getString("idPesquisa"));
 
 
                 pesquisas.add(pesquisa);
