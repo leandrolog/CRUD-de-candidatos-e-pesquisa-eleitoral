@@ -8,7 +8,7 @@ public class PesquisaStorage {
 
     public static boolean inserir(Pesquisa pesquisa) {
 
-        String query = "INSERT INTO pesquisa_eleitoral (Turno, Data, Tipo_de_pesquisa, Instituto ) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO pesquisa_eleitoral (turno, data, tipo_de_pesquisa, Instituto ) VALUES (?, ?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -134,7 +134,7 @@ public class PesquisaStorage {
                 pesquisa.setData(resultSet.getString("Data"));
                 pesquisa.setTipoDepesquisa(resultSet.getString("Tipo_de_pesquisa"));
                 pesquisa.setInstituto(resultSet.getString("instituto"));
-                pesquisa.setTurno(resultSet.getString("idPesquisa"));
+                pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
 
 
                 pesquisas.add(pesquisa);

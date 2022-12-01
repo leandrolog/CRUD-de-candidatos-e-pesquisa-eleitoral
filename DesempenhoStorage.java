@@ -63,6 +63,7 @@ public class DesempenhoStorage {
             statement.setString(2, desempenho.getNome());
             statement.setString(3, desempenho.getData());
             statement.setString(4, desempenho.getIntencaoDeVoto());
+            statement.setInt(5, desempenho.getIdDesempenho());
 
             statement.execute();
         } catch (SQLException e ) {
