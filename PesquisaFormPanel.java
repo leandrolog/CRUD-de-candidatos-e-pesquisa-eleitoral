@@ -46,7 +46,7 @@ public class PesquisaFormPanel extends JPanel {
                     txtTurno.setText(pesquisa.getTurno());
                     txtTipoDePesquisa.setText(pesquisa.getTipoDepesquisa());
                     txtInstituto.setText(pesquisa.getInstituto());
-                    txtIdPesquisa.setText(Integer.toString(pesquisa.getId()));
+                    txtIdPesquisa.setText(Integer.toString(pesquisa.getIdPesquisa()));
 
                 }
             }
