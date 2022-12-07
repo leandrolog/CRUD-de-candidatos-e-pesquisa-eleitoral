@@ -18,7 +18,7 @@ public class AppFrame extends JFrame {
 
 
     public AppFrame() {
-        super("ELEIÇÕES PRESIDENCIAIS 2022");
+        super("Confirma");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         cardLayout = new CardLayout();

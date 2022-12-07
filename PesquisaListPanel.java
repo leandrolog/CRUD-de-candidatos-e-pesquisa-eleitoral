@@ -131,7 +131,7 @@ public class PesquisaListPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Pesquisa pesquisa = tableModel.getPesquisa(tabela.getSelectedRow());
-                int resposta = JOptionPane.showConfirmDialog(PesquisaListPanel.this, "Deseja realmente remover?", "App", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                int resposta = JOptionPane.showConfirmDialog(PesquisaListPanel.this, "Deseja realmente remover?", "Confirma", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (resposta == JOptionPane.YES_OPTION) {
                     PesquisaStorage.remover(pesquisa);
                     recarregar();

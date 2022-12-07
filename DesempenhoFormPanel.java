@@ -116,7 +116,7 @@ public class DesempenhoFormPanel extends JPanel {
                     DesempenhoStorage.inserir(novoDesemepenho);
                     JOptionPane.showMessageDialog(DesempenhoFormPanel.this,
                             "Desempenho de Pesquisa adicionado com sucesso",
-                            "ELEIÇÕES PRESIDENCIAIS 2022",
+                            "Confirma",
                             JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     desempenho.setNome(txtNome.getText());
@@ -126,7 +126,7 @@ public class DesempenhoFormPanel extends JPanel {
                     DesempenhoStorage.atualizar(DesempenhoFormPanel.this.desempenho);
                     JOptionPane.showMessageDialog(DesempenhoFormPanel.this,
                             "Desempenho de Pesquisa atualizado com sucesso",
-                            "ELEIÇÕES PRESIDENCIAIS 2022",
+                            "Confirma",
                             JOptionPane.INFORMATION_MESSAGE);
                 }
 

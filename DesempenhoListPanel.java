@@ -132,7 +132,7 @@ public class DesempenhoListPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Desempenho desempenho = tableModel.getDesempenho(tabela.getSelectedRow());
-                int resposta = JOptionPane.showConfirmDialog(DesempenhoListPanel.this, "Deseja realmente remover?", "App", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                int resposta = JOptionPane.showConfirmDialog(DesempenhoListPanel.this, "Deseja realmente remover?", "Confirma", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (resposta == JOptionPane.YES_OPTION) {
                     DesempenhoStorage.remover(desempenho);
                     recarregar();

@@ -130,7 +130,7 @@ public class CandidatoListPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Candidato candidato = tableModel.getCandidato(tabela.getSelectedRow());
-                int resposta = JOptionPane.showConfirmDialog(CandidatoListPanel.this, "Deseja realmente remover?", "Todo App", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                int resposta = JOptionPane.showConfirmDialog(CandidatoListPanel.this, "Deseja realmente remover?", "Confirma", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (resposta == JOptionPane.YES_OPTION) {
                     CandidatoStorage.remover(candidato);
                    recarregar();
